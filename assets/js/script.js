@@ -5,11 +5,6 @@ var updateTime = setInterval(function() {
     dateElement.html(date + ' at ' + time);
 }, 1000)
 
-var popupButton = $('#popupForm');
-popupButton.on('click', function(event) {
-
-})
-
 
 
 

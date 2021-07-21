@@ -25,3 +25,8 @@ main {
 #sidebar {
     width: 33%;
 }
+
+#addProjectForm {
+    display: flex;
+flex-direction: column;
+}
