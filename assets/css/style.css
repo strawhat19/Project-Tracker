@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 5em;
+}
+
+header {
+    text-align: center;
+    background: skyblue;
+}
+
+main {
+    padding: 5em 0;
+}
+
+#instructions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#sidebar {
+    width: 33%;
+}
