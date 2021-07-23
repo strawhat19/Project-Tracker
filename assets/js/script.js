@@ -4,6 +4,7 @@ console.log('Project Tracker App!');
 // Declaring Variables
 var body = $('body');
 var table = $('#table');
+var form = $('#addProjectForm');
 var projectNameInput = $('#projectName');
 var projectTypeSelection = $('#projectType');
 var hourlyRateInput = $('#hourlyRateInput');
@@ -29,7 +30,10 @@ var updateTime = setInterval(interval => {
 var projects = JSON.parse(localStorage.getItem('Projects')) || [];
 console.log(projects);
 
-if (projects.length === 0) tableHead.style.borderBottom = 'none';
+// Checking Array Size
+setInterval(function() {
+    if (projects.length === 0) tableHead.style.borderBottom = 'none';
+},1000)
 
 // Function Invokations
 // Generate Project Rows
@@ -94,10 +98,12 @@ for (var i = projects.length - 1; i >= 0; i--) {
 // Project Object
 submitButton.on('click', event => {
 
-    
     // Input Validation
     if (!projectNameInput || !projectTypeSelection || !hourlyRateInput || !dueDateInput) {
         alert('You must enter values to add Project!');
+        return;
+    } else if (dueDateInput.val() === '- Select Project Type -') {
+        alert('You must enter an actual Project Type!');
         return;
     }
     
@@ -116,6 +122,9 @@ submitButton.on('click', event => {
     // console.log(projects);
     
     generateProjectRows();
+    form.children().eq(0).val('');
+    form.children().eq(1).val('- Select Project Type -');
+    form.children().eq(3).val('');
     // location.reload(true);
 
 })

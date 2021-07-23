@@ -13,6 +13,7 @@ body {
     background: var(--gray);
     color: #fff;
     overflow-x: hidden;
+    width: 100vw;
 }
 
 ::selection {
