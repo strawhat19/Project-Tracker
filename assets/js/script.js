@@ -121,11 +121,9 @@ submitButton.on('click', event => {
     // // projects.sort((a,b) => b.score - a.score);
     // console.log(projects);
     
-    generateProjectRows();
-    form.children().eq(0).val('');
-    form.children().eq(1).val('- Select Project Type -');
-    form.children().eq(3).val('');
-    // location.reload(true);
+    setInterval(function() {
+        location.reload(true);
+    }, 300)
 
 })
 
