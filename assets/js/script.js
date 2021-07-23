@@ -2,6 +2,8 @@
 console.log('Project Tracker App!');
 
 // Declaring Variables
+var body = $('body');
+var table = $('#table');
 var projectNameInput = $('#projectName');
 var projectTypeSelection = $('#projectType');
 var hourlyRateInput = $('#hourlyRateInput');
@@ -9,7 +11,9 @@ var hourlyRateNumberElement = $('.rateNumber');
 var hourlyRateNumber = $('.dollarAmount');
 var dueDateInput = $('#dueDateInput');
 var submitButton = $('#submitButton');
-var maxProjects = 15;
+var clearButton = $('#closeButtonClear');
+var tableHead = document.querySelector('#tableHead');
+var maxProjects = 5;
 var today = moment();
 var millisecondsInADay = 86400000;
 
@@ -21,17 +25,82 @@ var updateTime = setInterval(interval => {
     dateElement.html(date + ' at ' + time);
 }, 1000);
 
+// Retrieving Projects from Storage
 var projects = JSON.parse(localStorage.getItem('Projects')) || [];
+console.log(projects);
+
+if (projects.length === 0) tableHead.style.borderBottom = 'none';
+
+// Function Invokations
+// Generate Project Rows
+generateProjectRows();
+setInterval(function() {
+    // Check and Regenerate Project Rows every 24 Hours
+    generateProjectRows();
+}, millisecondsInADay)
+
+// Generate Project Rows
+function generateProjectRows() {
+
+    // Execute these functions for each item in the Projects Array
+    projects.map(project => {
+
+        var projectRow = $('<div class="tableRow projectRow">');
+        table.append(projectRow);
+
+        // Project Variables
+        var projectNameField = $('<div class="tableItem" class="projectName">');
+        var projectTypeField = $('<div class="tableItem" class="projectType">');
+        var hourlyRateField = $('<div class="tableItem" class="hourlyRate">');
+        var dueDateField = $('<div class="tableItem" class="dueDate">');
+        var daysUntilField = $('<div class="tableItem" class="daysUntil">');
+        var closeButton = $('<div class="tableItem"><i class="projectCloseButton closeButton fas fa-times" title="Clear Project"></i></div>');
+
+        var projectName = project.name;
+        var projectType = project.type;
+        var hourlyRate = project.hourly;
+        var dueDate = project.dueDate;
+        var daysUntil = project.daysUntil;
+
+        projectNameField.html(projectName);
+        projectTypeField.html(projectType);
+        hourlyRateField.html(hourlyRate);
+        dueDateField.html(dueDate);
+        daysUntilField.html(daysUntil);
+
+        projectRow.append(projectNameField);
+        projectRow.append(projectTypeField);
+        projectRow.append(hourlyRateField);
+        projectRow.append(dueDateField);
+        projectRow.append(daysUntilField);
+        projectRow.append(closeButton);
+
+    })
+
+}
+
+var projectCloseButtons = document.querySelectorAll('.projectCloseButton');
+console.log(projectCloseButtons);
+
+// Clear Item // Local Storage
+for (var i = projects.length - 1; i >= 0; i--) {
+    projectCloseButtons[i].addEventListener('click', event => {
+        $(event.target).parent().parent().remove();
+        projects.splice(i, 1);
+        localStorage.setItem('Projects', JSON.stringify(projects));
+    })
+}
 
 // Project Object
 submitButton.on('click', event => {
 
+    
     // Input Validation
     if (!projectNameInput || !projectTypeSelection || !hourlyRateInput || !dueDateInput) {
         alert('You must enter values to add Project!');
         return;
     }
-
+    
     var project = {
         name: projectNameInput.val(),
         type: projectTypeSelection.val(),
@@ -39,15 +108,17 @@ submitButton.on('click', event => {
         dueDate: moment(dueDateInput.val()).format('MMM Do, YYYY'),
         daysUntil: moment(dueDateInput.val()).to(today, true)
     }
-
+    
     projects.push(project);
     projects.splice(maxProjects);
     localStorage.setItem('Projects', JSON.stringify(projects));
     // // projects.sort((a,b) => b.score - a.score);
-    console.log(projects);
+    // console.log(projects);
+    
+    generateProjectRows();
+    // location.reload(true);
 
 })
-
 
 // Setting Ready State
 hourlyRateNumber.html(hourlyRateInput.val());
@@ -55,6 +126,13 @@ hourlyRateNumber.html(hourlyRateInput.val());
 hourlyRateInput.on('input', (event) => {
     hourlyRateNumber.html(hourlyRateInput.val())
 });
+
+// Clear Button
+clearButton.on('click', event => {
+    localStorage.removeItem('Projects');
+    location.reload(true);
+})
+
 
 
 

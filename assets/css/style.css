@@ -12,6 +12,7 @@
 body {
     background: var(--gray);
     color: #fff;
+    overflow-x: hidden;
 }
 
 ::selection {
@@ -54,7 +55,7 @@ main {
 
 /* Side Bar CSS */
 #sidebar {
-    width: 22em;
+    width: 23.5em;
     min-width: 22em;
     border: 2px solid #000;
     background: var(--darkBlue);
@@ -149,6 +150,11 @@ main {
 
 .close {
     opacity: 1;
+}
+
+.closeButton {
+    cursor: pointer;
+    font-size: 1.3em;
 }
 
 .modal-body {
@@ -278,29 +284,52 @@ input[type=range] {
 
 /* Begin Table Styles */
 #table {
-    width: 79em;
+    width: 80em;
     min-width: 65em;
     background: var(--darkBlue);
     border-radius: 5px;
     border: solid 2px #000;
 }
 
+#tableHead {
+    border-bottom: solid 2px #000;
+}
+
 .tableRow {
     display: flex;
     font-weight: 500;
     text-transform: uppercase;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: stretch;
     display: flex;
     align-items: center;
     min-height: 4.4em;
 }
 
+.tableRow:last-child {
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.projectRow {
+    background: var(--lightBlue);
+    border-bottom: solid 2px #000;
+}
+
+.projectRow .tableItem {
+    border-right: solid 2px var(--darkBlue);
+}
+
+.projectRow:last-child {
+    border-bottom: none;
+}
+
 .tableItem {
     display: flex;
     align-items: center;
-    padding: 1em 3em 1em 1em;
+    padding: 1.45em 2em 1.45em 2em;
     border-right: solid 2px #77a0c9;
+    min-width: 12.5vw;
 }
 
 .tableItem:last-child {
