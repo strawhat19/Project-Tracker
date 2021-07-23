@@ -2,29 +2,105 @@
     box-sizing: border-box;
 }
 
+:root {
+    --lightBlue: #77a0c9;
+    --darkBlue: #2c3e50;
+    --silver: #ecf0f1;
+    --gray: #5c5c5c;
+}
+
 body {
-    padding: 5em;
+    background: var(--gray);
+    color: #fff;
+}
+
+::selection {
+    background: var(--darkBlue);
+    color: #fff;
 }
 
 header {
+    padding: 3em;
     text-align: center;
-    background: skyblue;
+    background: var(--darkBlue);
+    border-bottom: solid 2px #000;
+}
+
+#headerLogo {
+    max-height: 100px;
+    margin-bottom: 1em;
 }
 
 main {
-    padding: 5em 0;
+    padding: 5em;
 }
 
-#instructions {
+#instructionsandtable {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
 
-#sidebar {
-    width: 33%;
-}
+/* Side Bar CSS */
+
+    #sidebar {
+        width: 22%;
+        border: 2px solid #000;
+        background: var(--darkBlue);
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        font-weight: 500;
+    }
+
+    #sidebar h2 {
+        padding: .5em .7em;
+        margin: 0;
+    }
+
+    #sidebar p {
+        background: var(--lightBlue);
+        padding: 1.5em 1.5em;
+        border-top: solid 2px #000;
+        border-bottom: solid 1px #000;
+        margin-bottom: 0;
+    }
+
+    #sidebar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    #sidebar li {
+        padding: .7em 1.5em;
+        background: var(--silver);
+        border-top: solid 1px #000;
+        border-bottom: solid 1px #000;
+        color: #000;
+    }
+
+    #sidebar li:last-child {
+        border-bottom: solid 2px #000;
+    }
+
+    #sidebar #modalButton {
+        background: var(--lightBlue);
+        margin: 1em;
+        border-radius: 5px;
+        border: solid 2px #000;
+        font-weight: 500;
+        box-shadow: none;
+        transition: 150ms ease-in-out;
+    }
+    
+    #sidebar #modalButton:hover {
+        background: var(--gray);
+        transition: 150ms ease-in-out;
+    }
+
+/* End Side Bar Styles */
 
 #addProjectForm {
     display: flex;
