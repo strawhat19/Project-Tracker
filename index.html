@@ -63,17 +63,43 @@
             </div>
             <div class="modal-body">
             <form id="addProjectForm">
-                <input id="projectName" name="Project Name:" type="name" placeholder="Project Name">
-                <select id="projectType" name="projectType" placeholder="Project Type" label="Project Type">
-                    <options value="javascript">Javascript</options>
+                <input id="projectName" name="Project Name" type="name" placeholder="Project Name" class="borderRad5">
+                <select id="projectType" name="Project Type" placeholder="Project Type" label="Project Type" class="borderRad5">
+                    <option value="- Select Project Type -">- Select Project Type -</option>
+                    <option value="HTML">HTML</option>
+                    <option value="CSS">CSS</option>
+                    <option value="Javascript">Javascript</option>
+                    <option value="jQuery">jQuery</option>
+                    <option value="Sass">Sass</option>
+                    <option value="AWS">WordPress</option>
+                    <option value="Python">Python</option>
+                    <option value="Java">Java</option>
+                    <option value="C#">C#</option>
+                    <option value="C++">C++</option>
+                    <option value="AWS">Full Stack</option>
+                    <option value="React.js">React.js</option>
+                    <option value="Node.js">Node.js</option>
+                    <option value="React Native">React Native</option>
+                    <option value="MySQL">MySQL</option>
+                    <option value="AWS">AWS</option>
+                    <option value="Android Developer Environment">Android Developer Environment</option>
+                    <option value="Xcode">Xcode</option>
                 </select>
+                <div class="rateElement">
+                    <div class="rateLabelSlider">
+                        <div class="rateLabel">Hourly Rate</div>
+                        <input type="range" name="range" id="hourlyRateInput" value="50" min="25" max="1000">
+                    </div>
+                    <div class="rateNumber">$<span class="dollarAmount"></span></div>
+                </div>
+                <input type="date" name="date" id="dueDateInput">
             </form>
             </div>
             <div class="modal-footer">
                 <img href="./" src="./assets/images/ProjectTrackerLogowhite.svg" id="modalLogo" class="logo">
                 <div class="buttonGroup">
                     <button type="button" class="btn btn-secondary modalButton2" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary modalButton">Save changes</button>
+                    <button id="submitButton" type="button" class="btn btn-primary modalButton">Submit Project Info</button>
                 </div>
             </div>
         </div>
