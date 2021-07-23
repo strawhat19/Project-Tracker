@@ -17,7 +17,7 @@
 <body>
 
 <header>
-    <img href="./" id="headerLogo" src="./assets/images/ProjectTrackerLogowhite.svg">
+    <img href="./" id="headerLogo" class="logo" src="./assets/images/ProjectTrackerLogowhite.svg">
     <h1>Project Tracker</h1>
     <h2>Current Time & Date:</h2>
     <div id="date"></div>
@@ -35,23 +35,30 @@
                     <li class="project-field">Due Date</li>
                     <li class="project-field">Hourly Rate</li>
                 </ul>
-                <button id="modalButton" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                <button id="modalButton" class="modalButton" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                     Add Project
                   </button>
             </div>
-            <div id="table">
-                Hello
+            <div id="table" class="table">
+                <div id="tableHead" class="tableRow">
+                    <div class="tableItem" class="projectName">Project Name</div>
+                    <div class="tableItem" class="projectType">Project Type</div>
+                    <div class="tableItem" class="hourlyRate">Hourly Rate ($)</div>
+                    <div class="tableItem" class="dueDate">Due Date</div>
+                    <div class="tableItem" class="daysUntil">Days Until Due Date</div>
+                    <div class="tableItem" class="potentialEarnings">Potential Total Earnings ($)</div>
+                </div>
             </div>
         </div>
 
-        <!-- Modal -->
+    <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Add a new project.</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+                <span aria-hidden="true" style="color: #fff"><i class="fas fa-times"></i></span>
             </button>
             </div>
             <div class="modal-body">
@@ -63,13 +70,15 @@
             </form>
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+                <img href="./" src="./assets/images/ProjectTrackerLogowhite.svg" id="modalLogo" class="logo">
+                <div class="buttonGroup">
+                    <button type="button" class="btn btn-secondary modalButton2" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary modalButton">Save changes</button>
+                </div>
             </div>
         </div>
         </div>
     </div>
-
 
     </section>
 </main>
@@ -78,6 +87,7 @@
     type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
   ></script>
+  <!-- jQuery -->
   <script
     src="https://code.jquery.com/jquery-3.5.1.min.js"
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="

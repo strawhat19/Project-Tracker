@@ -26,7 +26,7 @@ header {
     border-bottom: solid 2px #000;
 }
 
-#headerLogo {
+.logo {
     max-height: 100px;
     margin-bottom: 1em;
 }
@@ -38,71 +38,172 @@ main {
 #instructionsandtable {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
+    grid-gap: 80px;
 }
 
 /* Side Bar CSS */
+#sidebar {
+    width: 22em;
+    min-width: 22em;
+    border: 2px solid #000;
+    background: var(--darkBlue);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+}
 
-    #sidebar {
-        width: 22%;
-        border: 2px solid #000;
-        background: var(--darkBlue);
-        border-radius: 5px;
-        display: flex;
-        flex-direction: column;
-        font-weight: 500;
-    }
+#sidebar h2 {
+    padding: .5em .7em;
+    margin: 0;
+}
 
-    #sidebar h2 {
-        padding: .5em .7em;
-        margin: 0;
-    }
+#sidebar p {
+    background: var(--lightBlue);
+    padding: 1.5em 1.5em;
+    border-top: solid 2px #000;
+    border-bottom: solid 1px #000;
+    margin-bottom: 0;
+}
 
-    #sidebar p {
-        background: var(--lightBlue);
-        padding: 1.5em 1.5em;
-        border-top: solid 2px #000;
-        border-bottom: solid 1px #000;
-        margin-bottom: 0;
-    }
+#sidebar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
 
-    #sidebar ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
+#sidebar li {
+    padding: .7em 1.5em;
+    background: var(--silver);
+    border-top: solid 1px #000;
+    border-bottom: solid 1px #000;
+    color: #000;
+}
 
-    #sidebar li {
-        padding: .7em 1.5em;
-        background: var(--silver);
-        border-top: solid 1px #000;
-        border-bottom: solid 1px #000;
-        color: #000;
-    }
+#sidebar li:last-child {
+    border-bottom: solid 2px #000;
+}
 
-    #sidebar li:last-child {
-        border-bottom: solid 2px #000;
-    }
+.modalButton {
+    background: var(--lightBlue);
+    margin: 1em;
+    border-radius: 5px;
+    border: solid 2px #000;
+    color: var(--silver);
+    font-weight: 500;
+    box-shadow: none;
+    cursor: pointer;
+    transition: 150ms ease-in-out;
+}
 
-    #sidebar #modalButton {
-        background: var(--lightBlue);
-        margin: 1em;
-        border-radius: 5px;
-        border: solid 2px #000;
-        font-weight: 500;
-        box-shadow: none;
-        transition: 150ms ease-in-out;
-    }
-    
-    #sidebar #modalButton:hover {
-        background: var(--gray);
-        transition: 150ms ease-in-out;
-    }
+.modalButton:hover {
+    border: solid 2px #000;
+    background: var(--gray);
+    transition: 150ms ease-in-out;
+}
 
-/* End Side Bar Styles */
+.modalButton2 {
+    background: var(--gray);
+    border: 2px solid #000;
+    transition: 150ms ease-in-out;
+}
+
+.modalButton2:hover {
+    border: 2px solid #000;
+    background: var(--lightBlue);
+    transition: 150ms ease-in-out;
+}
+
+/* Modal and Form styles */
+.modal-content {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 5px;
+}
+
+.modal-header {
+    border-bottom: none;
+    background: var(--darkBlue);
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+.close {
+    opacity: 1;
+}
+
+.modal-body {
+    background: var(--lightBlue);
+}
 
 #addProjectForm {
     display: flex;
-flex-direction: column;
+    flex-direction: column;
+}
+
+.modal-footer {
+    justify-content: space-between;
+    border-top: none;
+    padding: 0;
+    background: var(--darkBlue);
+}
+
+#modalLogo {
+    margin: -10px -5px -15px;
+    padding: 0.5em 1em;
+    width: 96px;
+    border-radius: 90px;
+    height: 90px;
+    object-fit: cover;
+    transform: scale(.8);
+}
+
+.buttonGroup {
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    align-items: center;
+}
+
+/* Begin Table Styles */
+#table {
+    width: 79em;
+    min-width: 65em;
+    background: var(--darkBlue);
+    border-radius: 5px;
+    border: solid 2px #000;
+}
+
+.tableRow {
+    display: flex;
+    font-weight: 500;
+    text-transform: uppercase;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.tableRow {
+    display: flex;
+    align-items: center;
+}
+
+.tableItem {
+    display: flex;
+    align-items: center;
+    padding: 1em 3em 1em 1em;
+    border-right: solid 2px #77a0c9;
+}
+
+.tableItem:last-child {
+    border-right: none;
 }
