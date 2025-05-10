@@ -240,20 +240,19 @@ main {
 
 /* Input Range */
 input[type=range] {
-    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
     width: 100%; /* Specific width is required for Firefox. */
     background: transparent; /* Otherwise white in Chrome */
-  }
+}
   
-  input[type=range]::-webkit-slider-thumb {
+input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
-  }
+}
   
-  input[type=range]:focus {
+input[type=range]:focus {
     outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
-  }
+}
   
-  input[type=range]::-ms-track {
+input[type=range]::-ms-track {
     width: 100%;
     cursor: pointer;
   
@@ -261,9 +260,9 @@ input[type=range] {
     background: transparent; 
     border-color: transparent;
     color: transparent;
-  }
+}
 
-  input[type=range]::-webkit-slider-thumb {
+input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     border: 1px solid #fff;
     height: 16px;
@@ -274,7 +273,7 @@ input[type=range] {
     cursor: pointer;
     margin-top: -2.9px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
     box-shadow: 1px 1px 1px #fff, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
-  }
+}
 
 .buttonGroup {
     display: flex;
@@ -285,7 +284,7 @@ input[type=range] {
 
 /* Begin Table Styles */
 #table {
-    width: 80em;
+    width: 100%;
     min-width: 65em;
     background: var(--darkBlue);
     border-radius: 5px;
@@ -297,14 +296,14 @@ input[type=range] {
 }
 
 .tableRow {
-    display: flex;
+    /* display: flex; */
+    display: grid;
     font-weight: 500;
+    min-height: 4.4em;
+    align-items: stretch;
     text-transform: uppercase;
     justify-content: flex-start;
-    align-items: stretch;
-    display: flex;
-    align-items: center;
-    min-height: 4.4em;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr auto;
 }
 
 .tableRow:last-child {
@@ -331,7 +330,6 @@ input[type=range] {
     align-items: center;
     padding: 1.45em 2em 1.45em 2em;
     border-right: solid 2px #77a0c9;
-    min-width: 12.5vw;
 }
 
 .tableItem:last-child {
@@ -339,9 +337,7 @@ input[type=range] {
 }
 
 /* Media Queries */
-
 @media screen and (max-width: 1700px) {
-
     #instructionsandtable {
         display: flex;
         flex-direction: row;
@@ -375,8 +371,4 @@ input[type=range] {
     .tableRow {
         justify-content: space-evenly;
     }
-
 }
-
-/* Small Devices+ */
-/* @media (min-width: 576px) { */

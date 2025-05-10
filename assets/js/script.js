@@ -28,7 +28,6 @@ var updateTime = setInterval(interval => {
 
 // Retrieving Projects from Storage
 var projects = JSON.parse(localStorage.getItem('Projects')) || [];
-console.log(projects);
 
 // Checking Array Size
 setInterval(function() {
@@ -84,7 +83,6 @@ function generateProjectRows() {
 }
 
 var projectCloseButtons = document.querySelectorAll('.projectCloseButton');
-console.log(projectCloseButtons);
 
 // Clear Item // Local Storage
 for (var i = projects.length - 1; i >= 0; i--) {
@@ -118,8 +116,6 @@ submitButton.on('click', event => {
     projects.push(project);
     projects.splice(maxProjects);
     localStorage.setItem('Projects', JSON.stringify(projects));
-    // // projects.sort((a,b) => b.score - a.score);
-    // console.log(projects);
     
     setInterval(function() {
         location.reload(true);
