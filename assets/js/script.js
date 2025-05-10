@@ -120,7 +120,6 @@ submitButton.on('click', event => {
     setInterval(function() {
         location.reload(true);
     }, 300)
-
 })
 
 // Setting Ready State
@@ -135,13 +134,3 @@ clearButton.on('click', event => {
     localStorage.removeItem('Projects');
     location.reload(true);
 })
-
-
-
-
-
-
-
-
-
-
